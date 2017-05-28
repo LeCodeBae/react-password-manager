@@ -13,7 +13,8 @@ class EditPassword extends Component{
     this.state={
       url: '',
       username: '',
-      password: ''
+      password: '',
+      disabled: false
     }
   }
   
@@ -35,10 +36,29 @@ class EditPassword extends Component{
     })
   }
   
+  handleDisabled(password){
+    if(
+      /[A-Z]/g.test(password) &&
+      /[a-z]/g.test(password) &&
+      /[\W]/g.test(password) &&
+      /[\d]/g.test(password) &&
+      password.length >= 5
+    ){
+      this.setState({
+        disabled: false
+      })
+    } else {
+      this.setState({
+        disabled: true
+      })
+    }
+  }
+  
   handlePassword(e){
     this.setState({
       password: e.target.value
     })
+    this.handleDisabled(e.target.value)
   }
   
   submit(){
@@ -50,17 +70,74 @@ class EditPassword extends Component{
     })
   }
   
+  passwordUpperCase(){
+    if(/[A-Z]/g.test(this.state.password) === false){
+      return (
+        <p style={{color: '#F44336'}}>password must at least contain one uppercase letter</p>
+      )
+    }
+  }
+  
+  passwordLowerCase(){
+    if(/[a-z]/g.test(this.state.password) === false){
+      return (
+        <p style={{color: '#F44336'}}>password must at least contain one lowercase letter</p>
+      )
+    }
+  }
+  
+  passwordSpecial(){
+    if(/[\W]/g.test(this.state.password) === false){
+      return (
+        <p style={{color: '#F44336'}}>password must at least contain one symbol character</p>
+      )
+    }
+  }
+  
+  passwordNumber(){
+    if(/[\d]/g.test(this.state.password) === false){
+      return (
+        <p style={{color: '#F44336'}}>password must at least contain one numeral character</p>
+      )
+    }
+  }
+  
+  passwordLength(){
+    if(this.state.password.length < 5){
+      return (
+        <p style={{color: '#F44336'}}>password must be at least 5 characters length </p>
+      )
+    }
+  }
+  
+  passwordStrength(){
+    if(this.state.password === '' || this.state.password === null || this.state.password === undefined){
+      return(
+        <div/>
+      )
+    } else {
+      return(
+        <div>
+        {this.passwordUpperCase()}
+        {this.passwordLowerCase()}
+        {this.passwordSpecial()}
+        {this.passwordNumber()}
+        {this.passwordLength()}
+        </div>
+      )
+    }
+  }
+  
   render(){
     const actions = [
       <FlatButton
         label="Cancel"
-        primary={true}
         onTouchTap={()=>{this.handleClose()}}
       />,
       <FlatButton
         label="Submit"
-        primary={true}
         keyboardFocused={true}
+        disabled={this.state.disabled}
         onTouchTap={()=>{this.submit()}}
       />,
     ];
@@ -91,6 +168,7 @@ class EditPassword extends Component{
           value={this.state.password}
           onChange={(e)=>{this.handlePassword(e)}}
         />
+        {this.passwordStrength()}
       </Dialog>
     )
   }

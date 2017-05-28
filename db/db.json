@@ -3,10 +3,32 @@
     {
       "url": "http://google.com",
       "username": "bill",
-      "password": "bill",
-      "createdAt": "2017-05-26T08:39:40.883Z",
+      "password": "Bill!3",
+      "createdAt": "2017-05-28T15:24:12.767Z",
       "id": 1,
-      "updatedAt": "2017-05-28T13:54:38.097Z"
+      "updatedAt": "2017-05-28T15:30:30.127Z"
+    },
+    {
+      "url": "http://hacktiv8.com/",
+      "username": "bill",
+      "password": "iBill1@",
+      "createdAt": "2017-05-28T15:31:06.790Z",
+      "id": 2,
+      "updatedAt": "2017-05-28T15:35:34.026Z"
+    },
+    {
+      "url": "http://yahoo.com",
+      "username": "bill",
+      "password": "Ab123#",
+      "createdAt": "2017-05-28T15:34:19.590Z",
+      "id": 3
+    },
+    {
+      "url": "http://facebook.com",
+      "username": "bill",
+      "password": "Bill123@",
+      "createdAt": "2017-05-28T15:36:48.738Z",
+      "id": 4
     }
   ]
 }

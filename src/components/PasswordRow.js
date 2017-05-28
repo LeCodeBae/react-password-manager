@@ -24,8 +24,10 @@ class PasswordRow extends Component {
     console.log(this.props.data);
   }
   handleDate(date){
-    let d = new Date(date)
-    return d.toUTCString()
+    if(date !== undefined){
+      let d = new Date(date)
+      return d.toUTCString()
+    }
   }
   handleTouchTap(event){
     event.preventDefault();
