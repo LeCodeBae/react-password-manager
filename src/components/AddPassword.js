@@ -81,6 +81,7 @@ class AddPassword extends Component {
           <TextField
             hintText="Insert URL"
             floatingLabelText="URL"
+            type="url"
             onChange={(e)=>{this.handleURL(e)}}
           /><br/>
           <TextField

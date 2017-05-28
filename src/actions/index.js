@@ -58,10 +58,12 @@ export const deletePassword = (data) => {
   }
 }
 
-export const updatePassword = (data, password) => {
+export const updatePassword = (data, newData) => {
   return (dispatch)=>{
     axios.patch('http://localhost:8888/datas/' + data.id, {
-      password,
+      url: newData.url,
+      username: newData.username,
+      password: newData.password,
       updatedAt: new Date()
     }).then((res)=>{
       dispatch(updatePasswordSuccess(res.data))

@@ -16,8 +16,6 @@ class PasswordTable extends Component {
     this.props.fetchPassword()
   }
   
-  
-  
   render(){
     return(
       <Table selectable={false}>
@@ -35,7 +33,7 @@ class PasswordTable extends Component {
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
         {this.props.datas.map(data=>
-          <PasswordRow data={data}/>
+          <PasswordRow key={data.id} data={data}/>
         )}
         </TableBody>
       </Table>
