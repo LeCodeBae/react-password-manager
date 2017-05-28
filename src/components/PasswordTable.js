@@ -7,17 +7,54 @@ import {
   TableHeaderColumn,
   TableRow
 } from 'material-ui/Table';
+import TextField from 'material-ui/TextField';
 
 import { fetchPassword } from '../actions'
 import PasswordRow from './PasswordRow'
 
 class PasswordTable extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      searchTerm: ''
+    }
+  }
+  
   componentDidMount(){
     this.props.fetchPassword()
   }
   
+  handleType(e){
+    this.setState({
+      searchTerm: e.target.value
+    })
+  }
+  
+  handleSearch(){
+    if(this.state.searchTerm === null || this.state.searchTerm === undefined || this.state.searchTerm === ''){
+      return (
+        this.props.datas.map(data=>
+          <PasswordRow key={data.id} data={data}/>
+        )
+      )
+    } else {
+      const regEx = new RegExp(this.state.searchTerm, 'g')
+      let datas = this.props.datas.filter(data=>regEx.test(data.password))
+      return (
+        datas.map(data=>
+          <PasswordRow key={data.id} data={data}/>
+        )
+      )
+    }
+  }
+  
   render(){
     return(
+      <div style={{margin: '50px'}}>
+      <TextField
+        hintText="search password"
+        onChange={(e)=>{this.handleType(e)}}
+      />
       <Table selectable={false}>
         <TableHeader
           displaySelectAll={false}
@@ -32,11 +69,10 @@ class PasswordTable extends Component {
           </TableRow>
         </TableHeader>
         <TableBody displayRowCheckbox={false}>
-        {this.props.datas.map(data=>
-          <PasswordRow key={data.id} data={data}/>
-        )}
+        {this.handleSearch()}
         </TableBody>
       </Table>
+      </div>
     )
   }
 }
