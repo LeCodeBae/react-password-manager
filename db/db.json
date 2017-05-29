@@ -29,6 +29,13 @@
       "password": "Bill123@",
       "createdAt": "2017-05-28T15:36:48.738Z",
       "id": 4
+    },
+    {
+      "url": "http://bukalapak.com",
+      "username": "bill",
+      "password": "Bill345&",
+      "createdAt": "2017-05-28T15:46:56.830Z",
+      "id": 5
     }
   ]
 }

@@ -20,9 +20,6 @@ class PasswordRow extends Component {
     }
     this.closeEdit = this.closeEdit.bind(this)
   }
-  componentDidMount(){
-    console.log(this.props.data);
-  }
   handleDate(date){
     if(date !== undefined){
       let d = new Date(date)

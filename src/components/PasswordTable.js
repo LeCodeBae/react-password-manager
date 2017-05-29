@@ -39,7 +39,7 @@ class PasswordTable extends Component {
       )
     } else {
       const regEx = new RegExp(this.state.searchTerm, 'g')
-      let datas = this.props.datas.filter(data=>regEx.test(data.password))
+      let datas = this.props.datas.filter(data=>data.password.match(regEx))
       return (
         datas.map(data=>
           <PasswordRow key={data.id} data={data}/>
