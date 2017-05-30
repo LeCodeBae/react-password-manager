@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.1",
+    "enzyme": "^2.8.2",
+    "jsdom": "^11.0.0",
     "material-ui": "^0.18.1",
     "react": "^15.5.4",
+    "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-tap-event-plugin": "^2.0.1",

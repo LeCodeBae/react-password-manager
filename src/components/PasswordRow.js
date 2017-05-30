@@ -11,7 +11,7 @@ import MenuItem from 'material-ui/MenuItem';
 import { deletePassword } from '../actions'
 import EditPassword from './EditPassword'
 
-class PasswordRow extends Component {
+export class PasswordRow extends Component {
   constructor(props){
     super(props)
     this.state={

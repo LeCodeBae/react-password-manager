@@ -7,7 +7,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import { updatePassword } from '../actions';
 
-class EditPassword extends Component{
+export class EditPassword extends Component{
   constructor(props){
     super(props)
     this.state={

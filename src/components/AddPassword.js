@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 
 import { createPassword } from '../actions'
 
-class AddPassword extends Component {
+export class AddPassword extends Component {
   constructor(props){
     super(props)
     this.state={
@@ -104,7 +104,7 @@ class AddPassword extends Component {
   passwordLength(){
     if(this.state.password.length < 5){
       return (
-        <p style={{color: '#F44336'}}>password must be at least 5 characters length </p>
+        <p style={{color: '#F44336'}}>password must be at least 5 characters length</p>
       )
     }
   }

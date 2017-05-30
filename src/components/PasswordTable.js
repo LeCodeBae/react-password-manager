@@ -12,7 +12,7 @@ import TextField from 'material-ui/TextField';
 import { fetchPassword } from '../actions'
 import PasswordRow from './PasswordRow'
 
-class PasswordTable extends Component {
+export class PasswordTable extends Component {
   constructor(props){
     super(props)
     this.state = {
